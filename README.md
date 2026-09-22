@@ -8,6 +8,9 @@
 * [Funcionalidades](#-funcionalidades)
 * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 * [Aprendizados](#-aprendizados)
+* [Instalação e Execução Local](#-instalação-Execução-Local)
+* [Práticas de Versionamento e Fluxo de Trabalho](#-práticas-de-versionamento-e-fluxo-de-trabalho)
+* [Status do Projeto](#-status-do-projeto)
 * [Autor](#-autor)
 
 ---
@@ -56,6 +59,37 @@ Durante o desenvolvimento do projeto, foram praticados conceitos como:
 * Utilização de componentes do Bootstrap
 * Desenvolvimento de uma interface voltada para usabilidade
 
+---
+## 🚀 Instalação e Execução Local
+Para rodar o projeto localmente no seu computador, siga os passos abaixo:
+
+### Pré-requisitos
+* Um navegador web moderno (Google Chrome, Mozilla Firefox, Microsoft Edge, etc.).
+* Git instalado na sua máquina.
+
+1. Clonar o repositório: git clone https://github.com/osantiagooo/StudyTask.git
+2. Navegar até a pasta do projeto: cd StudyTask
+3. Executar a aplicação:
+* Por se tratar de uma aplicação Front-end estática, não é necessária a instalação de dependências de servidor ou comandos de build.
+* Basta dar um duplo clique no arquivo index.html ou abri-lo diretamente através de uma extensão como o Live Server no Visual Studio Code.
+
+---
+
+## 🌿 Práticas de Versionamento e Fluxo de Trabalho
+O gerenciamento de código do repositório adota o modelo GitFlow aliado ao uso das ferramentas nativas do GitHub para garantir rastreabilidade, colaboração eficaz e documentação contínua.
+
+### 1. Estrutura de Branches (GitFlow)
+* main: Contém estritamente o código estável, testado e pronto para produção.
+* develop: Centraliza o desenvolvimento contínuo e serve como base para integração de novas funcionalidades.
+* feature/<nome-da-feature>: Branches temporárias criadas a partir da develop para isolar a implementação de novas tarefas ou melhorias (ex: feature/ui-task-improvements). Após a conclusão, são mescladas de volta na develop.
+
+### 2. Gestão de Tarefas (Issues & Milestones)
+* Milestones: Utilizados para agrupar tarefas e monitorizar o progresso de entregas específicas (ex: v1.0.0 - Estrutura Base e Módulos Principais).
+* Issues: Utilizadas para documentar requisições de recursos, correções de bugs e tarefas de refatoração, garantindo clareza no escopo antes do início do desenvolvimento.
+
+### 3. Integração Contínua (Pull Requests)
+* Todas as alterações originadas em branches de funcionalidade (feature/) são integradas na develop através de Pull Requests (PRs).
+* Os PRs incluem descrições claras das alterações realizadas e utilizam palavras-chave do GitHub (ex: Closes #1) para fechar automaticamente as issues associadas após o merge.
 ---
 
 ## 📌 Status do Projeto
