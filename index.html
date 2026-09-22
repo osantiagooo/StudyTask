@@ -14,45 +14,47 @@
 
   <body class="d-flex flex-column min-vh-100">
     <!-- NAVBAR -->
-    <nav class="navbar bg-dark border-bottom border-body navbar-dark py-2" data-bs-theme="dark">
+    <header class="navbar bg-dark border-bottom border-body navbar-dark py-2" data-bs-theme="dark">
       <div class="container-fluid d-flex align-items-center justify-content-start gap-3">
-        <img src="./img/logo.png" alt="logo marca: coruja com asas de livros" width="200" height="150" class="d-inline-block align-text-top" onerror="this.style.display='none'">
+        <img src="./img/logo.png" alt="StudyTask - Logo" width="200" height="150" class="d-inline-block align-text-top" onerror="this.style.display='none'">
         <div>
           <h1 class="h4 text-white mb-0">StudyTask</h1>
           <p class="text-secondary small mb-0">Site para organização de tarefas, estudos e matérias</p>
         </div>
       </div>
-    </nav>
+    </header>
 
     <!-- ESTRUTURA PRINCIPAL: Sidebar + Conteúdo -->
     <div class="wrapper d-flex flex-grow-1">
-      <aside class="sidebar bg-light p-3 border-end" style="width: 250px; flex-shrink: 0;">
+      <aside class="sidebar bg-light p-3 border-end d-flex flex-column" style="width: 250px; flex-shrink: 0;" aria-label="Menu Lateral">
         <h2 class="h5 mb-3">Menu</h2>
-        <ul class="nav nav-pills flex-column gap-2" id="main-nav">
-          <li class="nav-item">
-            <a href="#" data-route="/" class="nav-link active">Início</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-route="/materias" class="nav-link text-dark">Matérias</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-route="/tarefas" class="nav-link text-dark">Tarefas</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-route="/sobre" class="nav-link text-dark">Sobre</a>
-          </li>
-          <hr>
-          <li>
-            <p class="small text-muted mb-0">
-              <strong>Dica de Estudo:</strong><br>
-              Utilize a técnica Pomodoro:<br>
-              25 minutos de foco total para 5 minutos de descanso.
-            </p>
-          </li>
-        </ul>
+        <nav aria-label="Navegação Principal">
+          <ul class="nav nav-pills flex-column gap-2" id="main-nav">
+            <li class="nav-item">
+              <a href="#" data-route="/" class="nav-link active" aria-current="page">Início</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" data-route="/materias" class="nav-link text-dark">Matérias</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" data-route="/tarefas" class="nav-link text-dark">Tarefas</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" data-route="/sobre" class="nav-link text-dark">Sobre</a>
+            </li>
+          </ul>
+        </nav>
+        <hr>
+        <div class="mt-auto">
+          <p class="small text-muted mb-0">
+            <strong>Dica de Estudo:</strong><br>
+            Utilize a técnica Pomodoro:<br>
+            25 minutos de foco total para 5 minutos de descanso.
+          </p>
+        </div>
       </aside>
 
-      <main id="app-content" class="main-content p-4 flex-grow-1">
+      <main id="app-content" class="main-content p-4 flex-grow-1" tabIndex="-1">
         <!-- Conteúdo dinâmico será injetado pelo JS -->
       </main>
     </div>
@@ -63,34 +65,34 @@
     </footer>
 
     <!-- ==================== MODAL: Criar / Editar Tarefa ==================== -->
-    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-modal="true" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="taskModalLabel">Nova Tarefa</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar modal"></button>
           </div>
           <div class="modal-body">
             <form id="taskForm" novalidate>
               <input type="hidden" id="taskId">
 
               <div class="mb-3">
-                <label for="taskTitle" class="form-label">Título <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="taskTitle" maxlength="80" required placeholder="Ex: Estudar Álgebra Linear">
-                <div class="invalid-feedback">Informe um título (máx. 80 caracteres).</div>
+                <label for="taskTitle" class="form-label">Título <span class="text-danger" aria-hidden="true">*</span></label>
+                <input type="text" class="form-control" id="taskTitle" maxlength="80" required aria-required="true" aria-describedby="taskTitleFeedback" placeholder="Ex: Estudar Álgebra Linear">
+                <div id="taskTitleFeedback" class="invalid-feedback">Informe um título (máx. 80 caracteres).</div>
               </div>
 
               <div class="mb-3">
                 <label for="taskDescription" class="form-label">Descrição</label>
-                <textarea class="form-control" id="taskDescription" rows="3" maxlength="400" placeholder="Detalhes, páginas, links, etc."></textarea>
-                <div class="form-text">Máximo 400 caracteres.</div>
+                <textarea class="form-control" id="taskDescription" rows="3" maxlength="400" aria-describedby="taskDescriptionHelp" placeholder="Detalhes, páginas, links, etc."></textarea>
+                <div id="taskDescriptionHelp" class="form-text">Máximo 400 caracteres.</div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="taskDeadline" class="form-label">Prazo <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control" id="taskDeadline" required>
-                  <div class="invalid-feedback">Informe uma data válida.</div>
+                  <label for="taskDeadline" class="form-label">Prazo <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="date" class="form-control" id="taskDeadline" required aria-required="true" aria-describedby="taskDeadlineFeedback">
+                  <div id="taskDeadlineFeedback" class="invalid-feedback">Informe uma data válida.</div>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="taskSubject" class="form-label">Matéria</label>
@@ -110,7 +112,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" id="btnSaveTask">Salvar Tarefa</button>
+            <button type="submit" form="taskForm" class="btn btn-primary" id="btnSaveTask">Salvar Tarefa</button>
           </div>
         </div>
       </div>
