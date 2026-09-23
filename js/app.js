@@ -4,9 +4,6 @@ import { createTaskCard, escapeHtml } from './ui.js';
 import { initRouter } from './router.js';
 import { initAccessibility } from "./accessibility.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  initAccessibility();
-
 });
 
 // Estado da Aplicação
@@ -35,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHome();
   initRouter(handleRouteChanged);
   setupModalEvents();
+  initAccessibility();
 });
 
 function handleRouteChanged(route) {
