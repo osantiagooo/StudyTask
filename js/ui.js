@@ -61,7 +61,7 @@ export function createTaskCard(task) {
             <div class="task-meta d-flex flex-wrap gap-2 align-items-center">
               ${deadlineInfo}
               ${task.subject ? `<span class="badge bg-secondary">${escapeHtml(task.subject)}</span>` : ''}
-              <span class="badge bg-light text-dark border">${capitalize(task.priority || 'media')}</span>
+              <span class="badge priority-label">${capitalize(task.priority || 'media')}</span>
             </div>
           </div>
           <div class="btn-group-vertical btn-group-sm">
