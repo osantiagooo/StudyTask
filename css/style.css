@@ -647,3 +647,225 @@ body.high-contrast .sidebar {
   }
 
 }
+
+/* =========================================================
+   CORREÇÕES DE CONTRASTE DO BOOTSTRAP
+   ========================================================= */
+
+/* -------------------------
+   MODO ESCURO
+   ------------------------- */
+
+body.dark-mode .text-muted,
+body.dark-mode .text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-mode .text-dark {
+  color: var(--text-main) !important;
+}
+
+body.dark-mode .text-white {
+  color: var(--text-main) !important;
+}
+
+body.dark-mode .bg-light {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+
+body.dark-mode .bg-secondary {
+  background-color: #495057 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .bg-primary {
+  background-color: #0d6efd !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .text-primary {
+  color: var(--primary-color) !important;
+}
+
+body.dark-mode .text-warning {
+  color: var(--warning-color) !important;
+}
+
+body.dark-mode .text-success {
+  color: var(--success-color) !important;
+}
+
+body.dark-mode .text-danger {
+  color: var(--danger-color) !important;
+}
+
+
+/* -------------------------
+   ALTO CONTRASTE
+   ------------------------- */
+
+body.high-contrast .text-muted,
+body.high-contrast .text-secondary,
+body.high-contrast .text-dark,
+body.high-contrast .text-white {
+  color: #ffffff !important;
+}
+
+body.high-contrast .bg-light,
+body.high-contrast .bg-secondary,
+body.high-contrast .bg-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.high-contrast .text-primary {
+  color: #ffff00 !important;
+}
+
+body.high-contrast .text-warning {
+  color: #ffff00 !important;
+}
+
+body.high-contrast .text-success {
+  color: #00ff00 !important;
+}
+
+body.high-contrast .text-danger {
+  color: #ff6b6b !important;
+}
+
+
+/* -------------------------
+   LISTAS / CARDS DO BOOTSTRAP
+   ------------------------- */
+
+body.dark-mode .list-group-item,
+body.high-contrast .list-group-item {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .card,
+body.high-contrast .card {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+}
+
+body.dark-mode .card-title,
+body.dark-mode .card-text,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.high-contrast .card-title,
+body.high-contrast .card-text,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6 {
+  color: var(--text-main);
+}
+
+
+/* -------------------------
+   FORMULÁRIOS
+   ------------------------- */
+
+body.dark-mode .form-label,
+body.high-contrast .form-label {
+  color: var(--text-main);
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode textarea,
+body.high-contrast .form-control,
+body.high-contrast .form-select,
+body.high-contrast textarea {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .form-control::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #adb5bd;
+}
+
+body.high-contrast .form-control::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #ffffff;
+}
+
+body.dark-mode .form-text,
+body.high-contrast .form-text {
+  color: var(--text-secondary) !important;
+}
+
+
+/* -------------------------
+   MODAL
+   ------------------------- */
+
+body.dark-mode .modal-content,
+body.high-contrast .modal-content {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer,
+body.high-contrast .modal-header,
+body.high-contrast .modal-footer {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .modal-title,
+body.high-contrast .modal-title {
+  color: var(--text-main);
+}
+
+body.dark-mode .btn-close {
+  filter: invert(1);
+}
+
+
+/* -------------------------
+   BOTÕES DE FILTRO
+   ------------------------- */
+
+body.dark-mode .btn-outline-secondary {
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .btn-outline-secondary:hover,
+body.dark-mode .btn-outline-secondary.active {
+  background-color: var(--border-color);
+  color: #000000;
+}
+
+body.high-contrast .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.high-contrast .btn-outline-secondary:hover,
+body.high-contrast .btn-outline-secondary.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.priority-label {
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
