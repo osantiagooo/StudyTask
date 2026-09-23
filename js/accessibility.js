@@ -1,58 +1,282 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
+/*
+ * =========================================================
+ * STUDYTASK - ACESSIBILIDADE
+ * =========================================================
+ *
+ * Responsável por:
+ * - Modo claro
+ * - Modo escuro
+ * - Alto contraste
+ * - Preferência do sistema operacional
+ * - Persistência da preferência do usuário
+ * - Atualização dos estados ARIA dos botões
+ *
+ * =========================================================
+ */
 
-  // Recupera a preferência salva
-  const savedTheme = localStorage.getItem("theme");
+const STORAGE_KEY = "studytask-theme";
 
-  // Detecta a preferência do sistema
-  const prefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
 
-  // Define o tema inicial
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  } else if (savedTheme === "high-contrast") {
-    body.classList.add("high-contrast");
-  } else if (savedTheme === "light") {
-    body.classList.remove("dark-mode", "high-contrast");
-  } else if (prefersDark) {
-    body.classList.add("dark-mode");
+/**
+ * Inicializa o sistema de acessibilidade.
+ */
+export function initAccessibility() {
+
+  const darkModeButton =
+    document.getElementById("darkModeButton");
+
+  const contrastButton =
+    document.getElementById("contrastButton");
+
+
+  /*
+   * Verifica se os botões existem.
+   *
+   * Isso evita erros caso o módulo seja carregado
+   * em uma página que não possua os controles.
+   */
+
+  if (!darkModeButton || !contrastButton) {
+    return;
   }
 
-  // Botão do modo escuro
-  const darkModeButton = document.getElementById("darkModeButton");
 
-  if (darkModeButton) {
-    darkModeButton.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
+  /*
+   * Recupera o tema salvo anteriormente.
+   */
 
-      // Remove alto contraste quando ativa o modo escuro
-      body.classList.remove("high-contrast");
+  const savedTheme =
+    localStorage.getItem(STORAGE_KEY);
 
-      if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
+
+  /*
+   * Se o usuário já escolheu um tema,
+   * utiliza a escolha dele.
+   *
+   * Caso contrário, utiliza a preferência
+   * do sistema operacional.
+   */
+
+  if (isValidTheme(savedTheme)) {
+
+    applyTheme(savedTheme);
+
+  } else {
+
+    applySystemTheme();
+
+  }
+
+
+  /*
+   * Botão de modo escuro.
+   */
+
+  darkModeButton.addEventListener(
+    "click",
+    () => {
+
+      const darkModeActive =
+        document.body.classList.contains("dark-mode");
+
+
+      if (darkModeActive) {
+
+        applyTheme("light");
+
       } else {
-        localStorage.setItem("theme", "light");
+
+        applyTheme("dark");
+
       }
-    });
-  }
 
-  // Botão de alto contraste
-  const contrastButton = document.getElementById("contrastButton");
+    }
+  );
 
-  if (contrastButton) {
-    contrastButton.addEventListener("click", () => {
-      body.classList.toggle("high-contrast");
 
-      // Remove modo escuro quando ativa alto contraste
-      body.classList.remove("dark-mode");
+  /*
+   * Botão de alto contraste.
+   */
 
-      if (body.classList.contains("high-contrast")) {
-        localStorage.setItem("theme", "high-contrast");
+  contrastButton.addEventListener(
+    "click",
+    () => {
+
+      const contrastActive =
+        document.body.classList.contains("high-contrast");
+
+
+      if (contrastActive) {
+
+        applyTheme("light");
+
       } else {
-        localStorage.setItem("theme", "light");
+
+        applyTheme("high-contrast");
+
       }
-    });
+
+    }
+  );
+
+}
+
+
+/**
+ * Verifica se o tema salvo é válido.
+ */
+function isValidTheme(theme) {
+
+  return (
+    theme === "light" ||
+    theme === "dark" ||
+    theme === "high-contrast"
+  );
+
+}
+
+
+/**
+ * Aplica a preferência de tema do sistema operacional.
+ */
+function applySystemTheme() {
+
+  const prefersDark =
+    window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+
+  if (prefersDark) {
+
+    applyTheme("dark");
+
+  } else {
+
+    applyTheme("light");
+
   }
-});
+
+}
+
+
+/**
+ * Aplica um determinado tema.
+ */
+function applyTheme(theme) {
+
+  /*
+   * Remove os temas anteriores.
+   */
+
+  document.body.classList.remove(
+    "dark-mode",
+    "high-contrast"
+  );
+
+
+  /*
+   * Aplica o tema escolhido.
+   */
+
+  if (theme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+  }
+
+
+  if (theme === "high-contrast") {
+
+    document.body.classList.add("high-contrast");
+
+  }
+
+
+  /*
+   * Salva a preferência do usuário.
+   */
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    theme
+  );
+
+
+  /*
+   * Atualiza os botões.
+   */
+
+  updateAccessibilityButtons(theme);
+
+}
+
+
+/**
+ * Atualiza o estado visual e ARIA dos botões.
+ */
+function updateAccessibilityButtons(theme) {
+
+  const darkModeButton =
+    document.getElementById("darkModeButton");
+
+  const contrastButton =
+    document.getElementById("contrastButton");
+
+
+  if (!darkModeButton || !contrastButton) {
+    return;
+  }
+
+
+  /*
+   * aria-pressed informa às tecnologias
+   * assistivas se o botão está ativo.
+   */
+
+  darkModeButton.setAttribute(
+    "aria-pressed",
+    theme === "dark" ? "true" : "false"
+  );
+
+
+  contrastButton.setAttribute(
+    "aria-pressed",
+    theme === "high-contrast" ? "true" : "false"
+  );
+
+
+  /*
+   * Atualiza o texto do botão de tema.
+   */
+
+  if (theme === "dark") {
+
+    darkModeButton.textContent =
+      "☀️ Modo claro";
+
+  } else {
+
+    darkModeButton.textContent =
+      "🌙 Modo escuro";
+
+  }
+
+
+  /*
+   * Atualiza o texto do botão de contraste.
+   */
+
+  if (theme === "high-contrast") {
+
+    contrastButton.textContent =
+      "◐ Contraste normal";
+
+  } else {
+
+    contrastButton.textContent =
+      "◐ Alto contraste";
+
+  }
+
+}
