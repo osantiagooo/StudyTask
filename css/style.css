@@ -34,6 +34,8 @@ body.dark-mode {
   --bg-main: #121212;
   --bg-sidebar: #1e1e1e;
   --bg-card: #212529;
+  --bs-body-color: #f8f9fa;
+  --bs-secondary-color: #a0a0a0;
 
   --text-main: #f8f9fa;
   --text-secondary: #dee2e6;
