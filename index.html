@@ -3,59 +3,146 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>StudyTask</title>
-    
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+
     <!-- Estilos customizados -->
     <link href="./css/style.css" rel="stylesheet">
   </head>
 
   <body class="d-flex flex-column min-vh-100">
-    <!-- NAVBAR -->
-    <header class="navbar bg-dark border-bottom border-body navbar-dark py-2" data-bs-theme="dark">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header
+      class="navbar py-2"
+      data-bs-theme="dark"
+    >
       <div class="container-fluid d-flex align-items-center justify-content-start gap-3">
-        <img src="./img/logo.png" alt="StudyTask - Logo" width="200" height="150" class="d-inline-block align-text-top" onerror="this.style.display='none'">
+
+        <img
+          src="./img/logo.png"
+          alt="StudyTask - Logo"
+          width="200"
+          height="150"
+          class="d-inline-block align-text-top"
+          onerror="this.style.display='none'"
+        >
+
         <div>
-          <h1 class="h4 text-white mb-0">StudyTask</h1>
-          <p class="text-secondary small mb-0">Site para organização de tarefas, estudos e matérias</p>
+          <h1 class="h4 mb-0">StudyTask</h1>
+
+          <p class="small mb-0">
+            Site para organização de tarefas, estudos e matérias
+          </p>
         </div>
+
       </div>
     </header>
 
-    <!-- ESTRUTURA PRINCIPAL: Sidebar + Conteúdo -->
+
+    <!-- ==================== ESTRUTURA PRINCIPAL ==================== -->
+
     <div class="wrapper d-flex flex-grow-1">
-      <aside class="sidebar bg-light p-3 border-end d-flex flex-column" style="width: 250px; flex-shrink: 0;" aria-label="Menu Lateral">
-        <h2 class="h5 mb-3">Menu</h2>
+
+      <!-- ==================== SIDEBAR ==================== -->
+
+      <aside
+        class="sidebar p-3 border-end d-flex flex-column"
+        style="width: 250px; flex-shrink: 0;"
+        aria-label="Menu Lateral"
+      >
+
+        <h2 class="h5 mb-3">
+          Menu
+        </h2>
+
+
+        <!-- Navegação principal -->
+
         <nav aria-label="Navegação Principal">
-          <ul class="nav nav-pills flex-column gap-2" id="main-nav">
+
+          <ul
+            class="nav nav-pills flex-column gap-2"
+            id="main-nav"
+          >
+
             <li class="nav-item">
-              <a href="#" data-route="/" class="nav-link active" aria-current="page">Início</a>
+              <a
+                href="#"
+                data-route="/"
+                class="nav-link active"
+                aria-current="page"
+              >
+                Início
+              </a>
             </li>
+
             <li class="nav-item">
-              <a href="#" data-route="/materias" class="nav-link text-dark">Matérias</a>
+              <a
+                href="#"
+                data-route="/materias"
+                class="nav-link"
+              >
+                Matérias
+              </a>
             </li>
+
             <li class="nav-item">
-              <a href="#" data-route="/tarefas" class="nav-link text-dark">Tarefas</a>
+              <a
+                href="#"
+                data-route="/tarefas"
+                class="nav-link"
+              >
+                Tarefas
+              </a>
             </li>
+
             <li class="nav-item">
-              <a href="#" data-route="/sobre" class="nav-link text-dark">Sobre</a>
+              <a
+                href="#"
+                data-route="/sobre"
+                class="nav-link"
+              >
+                Sobre
+              </a>
             </li>
+
           </ul>
+
         </nav>
-        
+
+
         <hr>
 
-        <div class="accessibility-controls">
-          <h2 class="h6">Acessibilidade</h2>
+
+        <!-- ==================== ACESSIBILIDADE ==================== -->
+
+        <section
+          class="accessibility-controls"
+          aria-labelledby="accessibility-title"
+        >
+
+          <h2
+            id="accessibility-title"
+            class="h6 mb-3"
+          >
+            Acessibilidade
+          </h2>
 
           <div class="d-grid gap-2">
+
             <button
               type="button"
               class="btn btn-outline-secondary btn-sm"
               id="darkModeButton"
-              aria-pressed="false">
+              aria-pressed="false"
+            >
               🌙 Modo escuro
             </button>
 
@@ -63,90 +150,322 @@
               type="button"
               class="btn btn-outline-secondary btn-sm"
               id="contrastButton"
-              aria-pressed="false">
+              aria-pressed="false"
+            >
               ◐ Alto contraste
             </button>
+
           </div>
-        </div>
-        
+
+        </section>
+
+
         <hr>
-        
+
+
+        <!-- ==================== DICA DE ESTUDO ==================== -->
+
         <div class="mt-auto">
-          <p class="small text-muted mb-0">
+
+          <p class="small mb-0">
             <strong>Dica de Estudo:</strong><br>
+
             Utilize a técnica Pomodoro:<br>
-            25 minutos de foco total para 5 minutos de descanso.
+
+            25 minutos de foco total para
+            5 minutos de descanso.
           </p>
+
         </div>
+
       </aside>
 
-      <main id="app-content" class="main-content p-4 flex-grow-1" tabIndex="-1">
+
+      <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+
+      <main
+        id="app-content"
+        class="main-content p-4 flex-grow-1"
+        tabindex="-1"
+      >
         <!-- Conteúdo dinâmico será injetado pelo JS -->
       </main>
+
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer bg-dark text-white text-center py-3 mt-auto">
-      <small>&copy; 2026 StudyTask - Todos os direitos reservados.</small>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="footer text-center py-3 mt-auto">
+
+      <small>
+        &copy; 2026 StudyTask - Todos os direitos reservados.
+      </small>
+
     </footer>
 
-    <!-- ==================== MODAL: Criar / Editar Tarefa ==================== -->
-    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-modal="true" aria-hidden="true">
+
+    <!-- ==================== MODAL: CRIAR / EDITAR TAREFA ==================== -->
+
+    <div
+      class="modal fade"
+      id="taskModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="taskModalLabel"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+
       <div class="modal-dialog modal-dialog-centered">
+
         <div class="modal-content">
+
           <div class="modal-header">
-            <h5 class="modal-title" id="taskModalLabel">Nova Tarefa</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar modal"></button>
+
+            <h5
+              class="modal-title"
+              id="taskModalLabel"
+            >
+              Nova Tarefa
+            </h5>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar modal"
+            ></button>
+
           </div>
+
+
           <div class="modal-body">
-            <form id="taskForm" novalidate>
-              <input type="hidden" id="taskId">
+
+            <form
+              id="taskForm"
+              novalidate
+            >
+
+              <input
+                type="hidden"
+                id="taskId"
+              >
+
+
+              <!-- Título -->
 
               <div class="mb-3">
-                <label for="taskTitle" class="form-label">Título <span class="text-danger" aria-hidden="true">*</span></label>
-                <input type="text" class="form-control" id="taskTitle" maxlength="80" required aria-required="true" aria-describedby="taskTitleFeedback" placeholder="Ex: Estudar Álgebra Linear">
-                <div id="taskTitleFeedback" class="invalid-feedback">Informe um título (máx. 80 caracteres).</div>
+
+                <label
+                  for="taskTitle"
+                  class="form-label"
+                >
+                  Título
+
+                  <span
+                    class="text-danger"
+                    aria-hidden="true"
+                  >
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="taskTitle"
+                  maxlength="80"
+                  required
+                  aria-required="true"
+                  aria-describedby="taskTitleFeedback"
+                  placeholder="Ex: Estudar Álgebra Linear"
+                >
+
+                <div
+                  id="taskTitleFeedback"
+                  class="invalid-feedback"
+                >
+                  Informe um título (máx. 80 caracteres).
+                </div>
+
               </div>
 
+
+              <!-- Descrição -->
+
               <div class="mb-3">
-                <label for="taskDescription" class="form-label">Descrição</label>
-                <textarea class="form-control" id="taskDescription" rows="3" maxlength="400" aria-describedby="taskDescriptionHelp" placeholder="Detalhes, páginas, links, etc."></textarea>
-                <div id="taskDescriptionHelp" class="form-text">Máximo 400 caracteres.</div>
+
+                <label
+                  for="taskDescription"
+                  class="form-label"
+                >
+                  Descrição
+                </label>
+
+                <textarea
+                  class="form-control"
+                  id="taskDescription"
+                  rows="3"
+                  maxlength="400"
+                  aria-describedby="taskDescriptionHelp"
+                  placeholder="Detalhes, páginas, links, etc."
+                ></textarea>
+
+                <div
+                  id="taskDescriptionHelp"
+                  class="form-text"
+                >
+                  Máximo 400 caracteres.
+                </div>
+
               </div>
+
+
+              <!-- Prazo e matéria -->
 
               <div class="row">
+
                 <div class="col-md-6 mb-3">
-                  <label for="taskDeadline" class="form-label">Prazo <span class="text-danger" aria-hidden="true">*</span></label>
-                  <input type="date" class="form-control" id="taskDeadline" required aria-required="true" aria-describedby="taskDeadlineFeedback">
-                  <div id="taskDeadlineFeedback" class="invalid-feedback">Informe uma data válida.</div>
+
+                  <label
+                    for="taskDeadline"
+                    class="form-label"
+                  >
+                    Prazo
+
+                    <span
+                      class="text-danger"
+                      aria-hidden="true"
+                    >
+                      *
+                    </span>
+                  </label>
+
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="taskDeadline"
+                    required
+                    aria-required="true"
+                    aria-describedby="taskDeadlineFeedback"
+                  >
+
+                  <div
+                    id="taskDeadlineFeedback"
+                    class="invalid-feedback"
+                  >
+                    Informe uma data válida.
+                  </div>
+
                 </div>
+
+
                 <div class="col-md-6 mb-3">
-                  <label for="taskSubject" class="form-label">Matéria</label>
-                  <input type="text" class="form-control" id="taskSubject" maxlength="50" placeholder="Ex: Matemática">
+
+                  <label
+                    for="taskSubject"
+                    class="form-label"
+                  >
+                    Matéria
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="taskSubject"
+                    maxlength="50"
+                    placeholder="Ex: Matemática"
+                  >
+
                 </div>
+
               </div>
+
+
+              <!-- Prioridade -->
 
               <div class="mb-3">
-                <label for="taskPriority" class="form-label">Prioridade</label>
-                <select class="form-select" id="taskPriority">
-                  <option value="baixa">Baixa</option>
-                  <option value="media" selected>Média</option>
-                  <option value="alta">Alta</option>
+
+                <label
+                  for="taskPriority"
+                  class="form-label"
+                >
+                  Prioridade
+                </label>
+
+                <select
+                  class="form-select"
+                  id="taskPriority"
+                >
+
+                  <option value="baixa">
+                    Baixa
+                  </option>
+
+                  <option
+                    value="media"
+                    selected
+                  >
+                    Média
+                  </option>
+
+                  <option value="alta">
+                    Alta
+                  </option>
+
                 </select>
+
               </div>
+
             </form>
+
           </div>
+
+
+          <!-- Botões do modal -->
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" form="taskForm" class="btn btn-primary" id="btnSaveTask">Salvar Tarefa</button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+
+            <button
+              type="submit"
+              form="taskForm"
+              class="btn btn-primary"
+              id="btnSaveTask"
+            >
+              Salvar Tarefa
+            </button>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JS local -->
-    <script type="module" src="./js/app.js"></script>
+
+    <!-- ==================== BOOTSTRAP JS ==================== -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+    <!-- ==================== JS DA APLICAÇÃO ==================== -->
+
+    <script
+      type="module"
+      src="./js/app.js"
+    ></script>
+
   </body>
 </html>
