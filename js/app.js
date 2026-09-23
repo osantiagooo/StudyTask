@@ -2,6 +2,12 @@
 import { loadTasks, saveTasks, MAX_TASKS } from './storage.js';
 import { createTaskCard, escapeHtml } from './ui.js';
 import { initRouter } from './router.js';
+import { initAccessibility } from "./accessibility.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  initAccessibility();
+
+});
 
 // Estado da Aplicação
 let tasks = [];
