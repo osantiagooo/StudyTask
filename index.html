@@ -24,15 +24,20 @@
       data-bs-theme="dark"
     >
       <div class="container-fluid d-flex align-items-center justify-content-start gap-3">
-    <img
-      src="./img/logo.webp"
-      alt="StudyTask - Logo"
-      width="200"
-      height="150"
-      class="logo d-inline-block align-text-top"
-      loading="lazy"
-      onerror="this.style.display='none'"
-    >
+    
+    <picture>
+      <source srcset="./img/logo.webp" type="image/webp">
+
+      <img
+        src="./img/logo.png"
+        alt="StudyTask - Logo"
+        width="200"
+        height="150"
+        class="logo d-inline-block align-text-top"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+    </picture>
 
         <div>
           <h1 class="h4 mb-0">StudyTask</h1>
