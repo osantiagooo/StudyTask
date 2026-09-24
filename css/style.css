@@ -871,3 +871,20 @@ body.high-contrast .btn-outline-secondary.active {
   color: var(--text-main);
   border: 1px solid var(--border-color);
 }
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 992px) {
+  .logo {
+    width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 120px;
+  }
+}
