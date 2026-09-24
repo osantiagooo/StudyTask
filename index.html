@@ -25,14 +25,26 @@
     >
       <div class="container-fluid d-flex align-items-center justify-content-start gap-3">
 
-        <img
-          src="./img/logo.png"
-          alt="StudyTask - Logo"
+        
+      <img
+        src="./img/logo-200.webp"
+        srcset="
+          ./img/logo-120.webp 120w,
+          ./img/logo-160.webp 160w,
+          ./img/logo-200.webp 200w
+        "
+        sizes="
+          (max-width: 576px) 120px,
+          (max-width: 992px) 160px,
+          200px
+        "
+        alt="StudyTask - Logo"
           width="200"
           height="150"
-          class="d-inline-block align-text-top"
+          class="logo d-inline-block align-text-top"
+          loading="lazy"
           onerror="this.style.display='none'"
-        >
+      > 
 
         <div>
           <h1 class="h4 mb-0">StudyTask</h1>

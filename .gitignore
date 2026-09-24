@@ -1,0 +1,12 @@
+# Dependências do Node.js
+node_modules/
+
+# Pasta gerada pela build/minificação do Vite
+dist/
+dist-ssr/
+
+# Arquivos de log e temporários
+*.log
+.DS_Store
+.vscode/
+.idea/
