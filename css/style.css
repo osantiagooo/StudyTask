@@ -873,7 +873,7 @@ body.high-contrast .btn-outline-secondary.active {
 }
 
 .logo {
-  width: 200px;
+  max-width: 100%;
   height: auto;
 }
 
