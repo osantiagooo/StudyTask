@@ -1,5 +1,3 @@
-// Responsabilidade exclusiva de renderizar HTML, sanitizar dados e manipular elementos de UI.
-// Funções Utilitárias de UI
 export function escapeHtml(str) {
   if (!str) return '';
   return str
@@ -9,29 +7,23 @@ export function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
-
 export function capitalize(str) {
   if (!str) return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
 export function formatDate(isoDate) {
   if (!isoDate) return '';
   const [y, m, d] = isoDate.split('-');
   return `${d}/${m}/${y}`;
 }
-
 export function getDeadlineBadge(deadline, completed) {
   if (completed) return `<span class="badge bg-secondary badge-deadline">Concluída</span>`;
-
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const due = new Date(deadline + 'T00:00:00');
   const diffDays = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
-
   let label = formatDate(deadline);
   let cls = 'bg-primary';
-
   if (diffDays < 0) {
     label = `Atrasada (${Math.abs(diffDays)}d)`;
     cls = 'overdue';
@@ -42,15 +34,12 @@ export function getDeadlineBadge(deadline, completed) {
     label = `${diffDays} dia(s)`;
     cls = 'soon';
   }
-
   return `<span class="badge badge-deadline ${cls}">${label}</span>`;
 }
-
 export function createTaskCard(task) {
   const deadlineInfo = getDeadlineBadge(task.deadline, task.completed);
   const priorityClass = `priority-${task.priority || 'media'}`;
   const completedClass = task.completed ? 'completed' : '';
-
   return `
     <div class="card task-card mb-3 ${priorityClass} ${completedClass}" data-id="${task.id}">
       <div class="card-body">
